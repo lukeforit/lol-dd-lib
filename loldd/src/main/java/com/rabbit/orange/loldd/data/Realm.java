@@ -3,12 +3,12 @@ package com.rabbit.orange.loldd.data;
 import com.squareup.moshi.Json;
 
 /**
- * Created by Łukasz on 10.02.2018.
+ * Realms details
  */
 
 public class Realm {
 
-    public static String NA = "na";
+    public static final String NA = "na";
 
     @Json(name = "n")
     public GameModulesVersions gameModulesVersions;

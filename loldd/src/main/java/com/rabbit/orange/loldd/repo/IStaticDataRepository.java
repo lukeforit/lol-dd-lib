@@ -5,10 +5,10 @@ import com.rabbit.orange.loldd.data.Realm;
 import java.util.List;
 
 /**
- * Created by Łukasz on 10.02.2018.
+ * Static data repository
  */
 
 public interface IStaticDataRepository {
-    public Realm realms(String realmId);
-    public List<String> versions();
+    Realm realms(String realmId);
+    List<String> versions();
 }

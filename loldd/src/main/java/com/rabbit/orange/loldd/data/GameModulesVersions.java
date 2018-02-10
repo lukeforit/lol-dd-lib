@@ -2,7 +2,7 @@ package com.rabbit.orange.loldd.data;
 
 
 /**
- * Created by Łukasz on 10.02.2018.
+ * Versions of different game modules
  */
 
 public class GameModulesVersions {

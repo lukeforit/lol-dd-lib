@@ -9,12 +9,12 @@ import java.util.List;
 import retrofit2.Response;
 
 /**
- * Created by Łukasz on 10.02.2018.
+ * Static data repository that retrieves data from the Data Dragon REST service
  */
 
 public class StaticDataDDRepository implements IStaticDataRepository {
 
-    private StaticDataDDRestService ddRestService;
+    private final StaticDataDDRestService ddRestService;
 
     public StaticDataDDRepository(StaticDataDDRestService staticDataDDRestService) {
         ddRestService = staticDataDDRestService;

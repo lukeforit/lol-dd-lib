@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /**
- * Created by Łukasz on 10.02.2018.
+ * Data Dragon REST service
  */
 
 public interface StaticDataDDRestService {

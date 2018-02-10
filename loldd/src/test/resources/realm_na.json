@@ -1,0 +1,21 @@
+{
+  "n": {
+    "item": "1.1.1",
+    "rune": "1.1.2",
+    "mastery": "1.1.2",
+    "summoner": "1.1.1",
+    "champion": "1.1.1",
+    "profileicon": "1.1.1",
+    "map": "1.1.1",
+    "language": "1.1.1",
+    "sticker": "1.1.1"
+  },
+  "v": "1.1.1",
+  "l": "en_US",
+  "cdn": "http://ddragon.leagueoflegends.com/cdn",
+  "dd": "1.1.1",
+  "lg": "1.1.1",
+  "css": "1.1.1",
+  "profileiconmax": 28,
+  "store": null
+}

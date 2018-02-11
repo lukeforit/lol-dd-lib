@@ -24,19 +24,21 @@ android {
 
 dependencies {
     ext {
-        retrofitVersion = '2.3.0'
-        moshiVersion = '1.5.0'
-        mockitoUnitVersion = '2.13.0'
-        okHttpClientVersion = '3.9.1'
-        jUnitVersion = '4.12'
+        retrofit = '2.3.0'
+        moshi = '1.5.0'
+        mockitoUnit = '2.13.0'
+        okHttpClient = '3.9.1'
+        jUnit = '4.12'
+        supportAnnotations = '27.0.2'
     }
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
+    implementation "com.android.support:support-annotations:$supportAnnotations"
 
-    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi:$moshi"
 
-    testImplementation "org.mockito:mockito-core:$mockitoUnitVersion"
-    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpClientVersion"
-    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoUnit"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpClient"
+    testImplementation "junit:junit:$jUnit"
 }

@@ -1,8 +1,9 @@
 package com.rabbit.orange.loldd;
 
-import com.rabbit.orange.loldd.data.Realm;
-import com.rabbit.orange.loldd.repo.dd.StaticDataDDRepository;
-import com.rabbit.orange.loldd.repo.dd.StaticDataDDRestService;
+import com.rabbit.orange.loldd.client.ApiClient;
+import com.rabbit.orange.loldd.data.model.Champion;
+import com.rabbit.orange.loldd.data.model.Realm;
+import com.rabbit.orange.loldd.repo.IStaticDataRepository;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -16,12 +17,11 @@ import java.util.List;
 
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
-import retrofit2.Retrofit;
-import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class StaticDataDDUnitTest {
 
-    private StaticDataDDRepository ddRepository;
+    private ApiClient apiClient;
+    private IStaticDataRepository ddRepository;
     private MockWebServer mockWebServer;
 
     private String getJsonAsString(String path) {
@@ -41,12 +41,8 @@ public class StaticDataDDUnitTest {
     public void setup() {
         mockWebServer = new MockWebServer();
         String baseUrl = mockWebServer.url("/").toString();
-        //TODO make use of ApiClient with different URL
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build();
-        ddRepository = new StaticDataDDRepository(retrofit.create(StaticDataDDRestService.class));
+        apiClient = new ApiClient.Builder().baseUrl(baseUrl).build();
+        ddRepository = apiClient.getStaticDataRepository();
     }
 
     @After
@@ -83,5 +79,19 @@ public class StaticDataDDUnitTest {
 
         Assert.assertNotNull(versions);
         Assert.assertFalse(versions.isEmpty());
+    }
+
+    @Test
+    public void champions() throws Exception {
+        String body = getJsonAsString("champion.json");
+        MockResponse mockResponse = new MockResponse()
+                .setResponseCode(200)
+                .setBody(body);
+        mockWebServer.enqueue(mockResponse);
+
+        List<Champion> champions = ddRepository.champions("8.3.1", "en_US");
+
+        Assert.assertNotNull(champions);
+        Assert.assertFalse(champions.isEmpty());
     }
 }

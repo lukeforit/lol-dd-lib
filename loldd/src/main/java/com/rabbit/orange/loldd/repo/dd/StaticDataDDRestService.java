@@ -1,6 +1,7 @@
 package com.rabbit.orange.loldd.repo.dd;
 
-import com.rabbit.orange.loldd.data.Realm;
+import com.rabbit.orange.loldd.data.model.Champion;
+import com.rabbit.orange.loldd.data.model.Realm;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ public interface StaticDataDDRestService {
 
     @GET("api/versions.json")
     Call<List<String>> versions();
+
+    @GET("/cdn/{version}/data/{language}/champion.json ")
+    Call<List<Champion>> champions(@Path("version") String version,
+                                   @Path("language") String language);
 }

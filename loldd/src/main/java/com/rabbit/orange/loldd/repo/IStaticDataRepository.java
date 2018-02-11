@@ -1,6 +1,7 @@
 package com.rabbit.orange.loldd.repo;
 
-import com.rabbit.orange.loldd.data.Realm;
+import com.rabbit.orange.loldd.data.model.Champion;
+import com.rabbit.orange.loldd.data.model.Realm;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ import java.util.List;
 public interface IStaticDataRepository {
     Realm realms(String realmId);
     List<String> versions();
+    List<Champion> champions(String version, String language);
 }

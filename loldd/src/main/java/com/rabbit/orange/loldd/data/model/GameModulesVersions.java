@@ -1,4 +1,4 @@
-package com.rabbit.orange.loldd.data;
+package com.rabbit.orange.loldd.data.model;
 
 
 /**

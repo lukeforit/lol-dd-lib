@@ -1,6 +1,7 @@
 package com.rabbit.orange.loldd.repo.dd;
 
-import com.rabbit.orange.loldd.data.Realm;
+import com.rabbit.orange.loldd.data.model.Champion;
+import com.rabbit.orange.loldd.data.model.Realm;
 import com.rabbit.orange.loldd.repo.IStaticDataRepository;
 
 import java.io.IOException;
@@ -37,6 +38,18 @@ public class StaticDataDDRepository implements IStaticDataRepository {
         Response<List<String>> response;
         try {
             response = ddRestService.versions().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return response.isSuccessful() ? response.body() : null;
+    }
+
+    @Override
+    public List<Champion> champions(String version, String language) {
+        Response<List<Champion>> response;
+        try {
+            response = ddRestService.champions(version, language).execute();
         } catch (IOException e) {
             e.printStackTrace();
             return null;

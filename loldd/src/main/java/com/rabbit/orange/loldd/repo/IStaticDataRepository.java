@@ -1,5 +1,7 @@
 package com.rabbit.orange.loldd.repo;
 
+import android.support.annotation.NonNull;
+
 import com.rabbit.orange.loldd.data.model.Champion;
 import com.rabbit.orange.loldd.data.model.Realm;
 
@@ -10,7 +12,7 @@ import java.util.List;
  */
 
 public interface IStaticDataRepository {
-    Realm realms(String realmId);
+    Realm realms(@NonNull String realmId);
     List<String> versions();
-    List<Champion> champions(String version, String language);
+    List<Champion> champions(@NonNull String version, @NonNull String language);
 }

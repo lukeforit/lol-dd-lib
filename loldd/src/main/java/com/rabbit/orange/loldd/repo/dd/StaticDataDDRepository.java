@@ -1,5 +1,7 @@
 package com.rabbit.orange.loldd.repo.dd;
 
+import android.support.annotation.NonNull;
+
 import com.rabbit.orange.loldd.data.model.Champion;
 import com.rabbit.orange.loldd.data.model.Realm;
 import com.rabbit.orange.loldd.repo.IStaticDataRepository;
@@ -22,7 +24,7 @@ public class StaticDataDDRepository implements IStaticDataRepository {
     }
 
     @Override
-    public Realm realms(String realmId) {
+    public Realm realms(@NonNull String realmId) {
         Response<Realm> response;
         try {
             response = ddRestService.realms(realmId).execute();
@@ -46,7 +48,7 @@ public class StaticDataDDRepository implements IStaticDataRepository {
     }
 
     @Override
-    public List<Champion> champions(String version, String language) {
+    public List<Champion> champions(@NonNull String version, @NonNull String language) {
         Response<List<Champion>> response;
         try {
             response = ddRestService.champions(version, language).execute();
